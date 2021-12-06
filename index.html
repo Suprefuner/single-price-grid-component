@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- displays site properly based on user's device -->
+
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./images/favicon-32x32.png"
+    />
+
+    <title>Frontend Mentor | Single Price Grid Component</title>
+
+    <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Karla:wght@400;700&display=swap");
+
+      /* control start ------------------------------------------------------------ */
+
+      :root {
+        /* Primary color */
+        --cyan: hsl(179, 62%, 43%);
+        --dark-cyan: hsl(179, 53%, 40%);
+        --bright-yellow: hsl(71, 73%, 54%);
+        --shadow: hsl(194 100% 40%/0.8);
+
+        /* Neutral color */
+        --light-gray: hsl(204, 43%, 93%);
+        --grayish-blue: hsl(218, 25%, 85%);
+
+        /* font weight */
+        --fw-regu: 400;
+        --fw-bold: 700;
+
+        --border-radius: 10px;
+      }
+
+      html {
+        font-size: 100%;
+        font-family: "Karla", sans-serif;
+        box-sizing: border-box;
+      }
+
+      *,
+      *::before,
+      *::after {
+        padding: 0;
+        margin: 0;
+        list-style: none;
+        box-sizing: inherit;
+      }
+
+      .clr-bg {
+        color: white;
+      }
+
+      .sec-heading {
+        font-weight: var(--fw-bold);
+      }
+
+      /* control end ------------------------------------------------------------ */
+
+      body {
+        display: flex;
+        flex-direction: column;
+        place-items: center;
+        padding: 5rem 2rem;
+        background-color: var(--grayish-blue);
+      }
+
+      .container {
+        margin-bottom: 2rem;
+        box-shadow: 0 10px 30px -10px var(--shadow);
+      }
+
+      section {
+        padding: 2rem;
+      }
+
+      h1 {
+        display: none;
+        width: 0;
+        height: 0;
+      }
+
+      h2 {
+        font-size: 20px;
+      }
+
+      .sec-heading {
+        margin-bottom: 1.5rem;
+      }
+
+      /* join section start ------------------------------------------------------------ */
+      .join-sec {
+        background-color: white;
+        border-radius: var(--border-radius) var(--border-radius) 0 0;
+      }
+
+      .join-sec * + * {
+        margin-top: 1rem;
+      }
+
+      .join-sec h2 {
+        color: var(--cyan);
+      }
+
+      .join-sec p {
+        font-size: 13px;
+        line-height: 1.7;
+        color: var(--grayish-blue);
+      }
+
+      .join-sec h4 {
+        color: var(--bright-yellow);
+      }
+
+      /* join section end ------------------------------------------------------------ */
+
+      /* sub section start ------------------------------------------------------------ */
+      .sub-sec {
+        background: var(--dark-cyan);
+      }
+
+      .sub-sec a {
+        display: inline-block;
+        width: 100%;
+        background-color: var(--bright-yellow);
+        color: white;
+        text-decoration: none;
+        text-align: center;
+        font-weight: var(--fw-bold);
+        padding-block: 1rem;
+        border-radius: var(--border-radius);
+        box-shadow: 0 5px 20px -5px hsl(0 0% 0%/0.3);
+      }
+      .price {
+        display: flex;
+        align-items: center;
+        color: var(--light-gray);
+      }
+      .sub-sec span {
+        color: white;
+        font-size: 2rem;
+        margin-right: 1rem;
+      }
+
+      .content {
+        margin-bottom: 1.5rem;
+      }
+
+      /* sub section end ------------------------------------------------------------ */
+
+      /* why section start ------------------------------------------------------------ */
+      .why-sec {
+        background-color: var(--cyan);
+        border-radius: 0 0 var(--border-radius) var(--border-radius);
+      }
+
+      .why-sec ul {
+        color: var(--light-gray);
+        font-size: 14px;
+      }
+
+      /* why section end ------------------------------------------------------------ */
+
+      /* RWD section start ------------------------------------------------------------ */
+      @media screen and (min-width: 376px) {
+        .container {
+          display: grid;
+          grid-template-columns: repeat(2, 1fr);
+          max-width: 800px;
+          min-width: 505px;
+        }
+
+        .join-sec {
+          grid-column: span 2;
+        }
+        .sub-sec {
+          grid-column: 1/2;
+          border-bottom-left-radius: var(--border-radius);
+        }
+        .why-sec {
+          border-bottom-left-radius: 0;
+          grid-column: 2/3;
+          line-height: 1.3;
+        }
+      }
+
+      /* RWD section end ------------------------------------------------------------ */
+
+      .attribution {
+        font-size: 11px;
+        text-align: center;
+      }
+      .attribution a {
+        color: hsl(228, 45%, 44%);
+      }
+    </style>
+  </head>
+  <body>
+    <h1 class="sr-only">Single Price Grid Component</h1>
+    <main class="container">
+      <section class="join-sec">
+        <h2 class="sec-heading">Join our community</h2>
+        <h4>30-day, hassle-free money back guarantee</h4>
+        <p>
+          Gain access to our full library of tutorials along with expert code
+          reviews. Perfect for any developers who are serious about honing their
+          skills.
+        </p>
+      </section>
+      <section class="sub-sec clr-bg">
+        <h2 class="sec-heading">Monthly Subscription</h2>
+        <div class="content">
+          <p class="price"><span>&dollar;29</span>per month</p>
+          <p class="description">Full access for less than &dollar;1 a day</p>
+        </div>
+        <a href="#" class="btn">Sign Up</a>
+      </section>
+      <section class="why-sec clr-bg">
+        <h2 class="sec-heading">Why Us</h2>
+        <ul>
+          <li>Tutorials by industry experts</li>
+          <li>Peer &amp; expert code review</li>
+          <li>Coding exercises</li>
+          <li>Access to our GitHub repos</li>
+          <li>Community forum</li>
+          <li>Flashcard decks</li>
+          <li>New videos every week</li>
+        </ul>
+      </section>
+    </main>
+
+    <footer>
+      <p class="attribution">
+        Challenge by
+        <a href="https://www.frontendmentor.io?ref=challenge" target="_blank"
+          >Frontend Mentor</a
+        >. Coded by <a href="#">Joe Jai</a>.
+      </p>
+    </footer>
+  </body>
+</html>
